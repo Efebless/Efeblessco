@@ -79,6 +79,7 @@
     display:flex;
     align-items:center;
     justify-content:center;
+    overflow:hidden;
   }
 
   .photo-slot::after{
@@ -89,12 +90,23 @@
     color:rgba(246,243,236,0.28);
   }
 
+  .photo-slot img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:6px;
+    position:absolute;
+    inset:0;
+    z-index:0;
+  }
+
   .photo-slot .corner{
     position:absolute;
     width:14px;
     height:14px;
     border:1.5px solid var(--brass);
     opacity:0.85;
+    z-index:2;
   }
   .corner.tl{ top:10px; left:10px; border-right:none; border-bottom:none; }
   .corner.tr{ top:10px; right:10px; border-left:none; border-bottom:none; }
@@ -252,11 +264,12 @@
     <div class="eyebrow">Business ID · No. 001</div>
 
     <div class="photo-slot">
-      <span class="corner tl"></span>
-      <span class="corner tr"></span>
-      <span class="corner bl"></span>
-      <span class="corner br"></span>
-    </div>
+  <img src="IMG-20260731-WA0004%281%29.jpg" alt="Efebless">
+  <span class="corner tl"></span>
+  <span class="corner tr"></span>
+  <span class="corner bl"></span>
+  <span class="corner br"></span>
+</div>
 
     <div class="id-name">EFEBLESSCO</div>
     <div class="id-role">Multi-Skilled Tradesman &amp; Tech Services</div>
