@@ -350,13 +350,10 @@
   <script>
     let popupShown = false;
 
-    document.addEventListener("mouseout", function(event) {
+    // Shows the popup automatically after 15 seconds on the page (works on phone & desktop)
+    setTimeout(function() {
       const popup = document.getElementById("exitPopup");
-
-      // Fires when the mouse actually leaves the browser window (not just an inner element)
-      const leavingWindow = !event.relatedTarget && !event.toElement;
-
-      if (leavingWindow && event.clientY <= 0 && !popupShown && !popup.open) {
+      if (!popupShown && !popup.open) {
         popupShown = true;
         popup.showModal();
 
@@ -365,7 +362,7 @@
           if (popup.open) popup.close();
         }, 7000);
       }
-    });
+    }, 15000);
   </script>
 
 </body>
