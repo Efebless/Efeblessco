@@ -81,12 +81,13 @@
     justify-content:center;
   }
 
-  .photo-slot::after{
-    content:"PHOTO";
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.2em;
-    color:rgba(246,243,236,0.28);
+  .photo-img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:6px;
+    position:absolute;
+    inset:0;
   }
 
   .photo-slot .corner{
@@ -252,6 +253,7 @@
     <div class="eyebrow">Business ID · No. 001</div>
 
     <div class="photo-slot">
+      <img src="IMG-20260731-WA0004(1).jpg" alt="EFEBLESSCO portrait photo" class="photo-img">
       <span class="corner tl"></span>
       <span class="corner tr"></span>
       <span class="corner bl"></span>
@@ -346,14 +348,21 @@
 
   <!-- POP-UP LOGIC & TIMER -->
   <script>
-    document.addEventListener("mouseleave", function(event) {
+    let popupShown = false;
+
+    document.addEventListener("mouseout", function(event) {
       const popup = document.getElementById("exitPopup");
-      if (!popup.open) {
+
+      // Fires when the mouse actually leaves the browser window (not just an inner element)
+      const leavingWindow = !event.relatedTarget && !event.toElement;
+
+      if (leavingWindow && event.clientY <= 0 && !popupShown && !popup.open) {
+        popupShown = true;
         popup.showModal();
-        
+
         // Auto-close after 7 seconds
         setTimeout(function() {
-          popup.close();
+          if (popup.open) popup.close();
         }, 7000);
       }
     });
