@@ -96,257 +96,43 @@
     object-fit:cover;
     border-radius:6px;
     position:absolute;
-    inset:0;
-    z-index:0;
-  }
-
-  .photo-slot .corner{
-    position:absolute;
-    width:14px;
-    height:14px;
-    border:1.5px solid var(--brass);
-    opacity:0.85;
-    z-index:2;
-  }
-  .corner.tl{ top:10px; left:10px; border-right:none; border-bottom:none; }
-  .corner.tr{ top:10px; right:10px; border-left:none; border-bottom:none; }
-  .corner.bl{ bottom:10px; left:10px; border-right:none; border-top:none; }
-  .corner.br{ bottom:10px; right:10px; border-left:none; border-top:none; }
-
-  .id-name{
-    margin-top:26px;
-    font-size:28px;
-    font-weight:700;
-    letter-spacing:-0.01em;
-    z-index:1;
-  }
-
-  .id-role{
-    margin-top:6px;
-    font-family:'JetBrains Mono', monospace;
-    font-size:12.5px;
-    color:var(--brass-light);
-    letter-spacing:0.04em;
-    z-index:1;
-  }
-
-  .id-footer{
-    margin-top:auto;
-    padding-top:32px;
-    border-top:1px solid var(--line);
-    font-family:'JetBrains Mono', monospace;
-    font-size:11.5px;
-    color:rgba(246,243,236,0.65);
-    line-height:1.9;
-    z-index:1;
-  }
-
-  .id-footer span{ color:var(--brass-light); }
-
-  .services-panel{
-    flex:2 1 520px;
-    background:var(--paper);
-    padding:56px clamp(28px, 5vw, 72px);
-  }
-
-  .services-head h1{
-    font-size:clamp(28px, 3.4vw, 40px);
-    font-weight:700;
-    letter-spacing:-0.015em;
-    line-height:1.15;
-  }
-
-  .services-head p{
-    margin-top:14px;
-    max-width:480px;
-    color:#4a4f54;
-    font-size:15px;
-    line-height:1.6;
-  }
-
-  .services-list{
-    margin-top:42px;
-    display:flex;
-    flex-direction:column;
-  }
-
-  .service-row{
-    display:grid;
-    grid-template-columns:56px 1fr;
-    gap:22px;
-    align-items:start;
-    padding:24px 0;
-    border-top:1px solid rgba(28,32,36,0.12);
-    position:relative;
-  }
-
-  .services-list .service-row:last-child{
-    border-bottom:1px solid rgba(28,32,36,0.12);
-  }
-
-  .service-tag{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12px;
-    color:var(--brass);
-    font-weight:600;
-    padding-top:3px;
-  }
-
-  .service-body h3{
-    font-size:19px;
-    font-weight:600;
-    letter-spacing:-0.005em;
-  }
-
-  .service-body p{
-    margin-top:6px;
-    font-size:14px;
-    color:#5c6167;
-    line-height:1.55;
-    max-width:460px;
-  }
-
-  .service-row:hover{
-    background:rgba(196,138,58,0.05);
-  }
-  .service-row:hover .service-tag{
-    color:var(--brass-light);
-  }
-
-  .contact-strip{
-    margin-top:48px;
-    display:flex;
-    flex-wrap:wrap;
-    gap:14px;
-  }
-
-  .contact-strip a{
-    font-family:'JetBrains Mono', monospace;
-    font-size:12.5px;
-    text-decoration:none;
-    color:var(--paper);
-    background:var(--ink);
-    padding:11px 18px;
-    border-radius:3px;
-    letter-spacing:0.03em;
-    transition:background 0.15s ease;
-  }
-
-  .contact-strip a:hover{ background:var(--brass); }
-
-  .contact-strip a.outline{
-    background:transparent;
-    color:var(--ink);
-    box-shadow:inset 0 0 0 1px rgba(28,32,36,0.35);
-  }
-  .contact-strip a.outline:hover{
-    background:var(--ink);
-    color:var(--paper);
-    box-shadow:none;
-  }
-
-  @media (max-width: 720px){
-    .id-panel{ max-width:none; }
-    .service-row{ grid-template-columns:40px 1fr; gap:14px; }
-  }
-
-  :focus-visible{
-    outline:2px solid var(--brass);
-    outline-offset:2px;
   }
 </style>
 </head>
 <body>
 
-<div class="wrap">
-
-  <aside class="id-panel">
-    <div class="eyebrow">Business ID · No. 001</div>
-
-    <div class="photo-slot">
-  <img src="IMG-20260731-WA0004%281%29.jpg" alt="Efebless">
-  <span class="corner tl"></span>
-  <span class="corner tr"></span>
-  <span class="corner bl"></span>
-  <span class="corner br"></span>
-</div>
-
-    <div class="id-name">EFEBLESSCO</div>
-    <div class="id-role">Multi-Skilled Tradesman &amp; Tech Services</div>
-
-    <div class="id-footer">
-      LOCATION &nbsp;<span>— Delta, Nigeria</span><br>
-      PHONE &nbsp;&nbsp;&nbsp;&nbsp;<span>— +234 901 344 0139</span><br>
-      EMAIL &nbsp;&nbsp;&nbsp;&nbsp;<span>— efeblessco@gmail.com</span>
+  <div class="wrap">
+    <div class="id-panel">
+      <div class="eyebrow">EFEBLESSCO Services</div>
+      <div class="photo-slot">
+        <!-- Add your photo here like: <img src="your-photo.jpg" alt="Profile"> -->
+      </div>
     </div>
-  </aside>
+  </div>
 
-  <main class="services-panel">
-    <div class="services-head">
-      <h1>Skilled hands.<br>Sharp systems.</h1>
-      <p>I work across six disciplines — from finished ceilings to finished networks. Reach out for any of the services below.</p>
-    </div>
+  <!-- EXIT-INTENT POP-UP -->
+  <dialog id="exitPopup" style="border: none; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 320px; text-align: center;">
+    <h3 style="margin-top: 0; color: #333;">🛑 Wait, don't go yet!</h3>
+    <p style="color: #666; margin: 15px 0;">Book your service today and get <strong>10% off</strong> your first visit! 🛠️⚡</p>
+    
+    <!-- WHATSAPP DIRECT LINK WITH YOUR NUMBER -->
+    <a href="https://wa.me/2349013440139?text=Hello%20EFEBLESSCO,%20I%20would%20like%20to%20claim%20my%2010%25%20discount%20booking!" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-size: 16px; font-weight: bold; box-shadow: 0 4px 10px rgba(37,211,102,0.3);">💬 Chat on WhatsApp</a>
+  </dialog>
 
-    <div class="services-list">
-
-      <div class="service-row">
-        <div class="service-tag">01</div>
-        <div class="service-body">
-          <h3>PVC Ceiling &amp; Carpentry (Apprentice)</h3>
-          <p>PVC ceiling installation, framing, and general carpentry work — trained under supervision, reliable on site.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-tag">02</div>
-        <div class="service-body">
-          <h3>Networking Student</h3>
-          <p>Studying computer networking — cabling, basic configuration, and troubleshooting support for small setups.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-tag">03</div>
-        <div class="service-body">
-          <h3>Dropshipping Agent</h3>
-          <p>Product sourcing, supplier communication, and order fulfilment support for online store owners.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-tag">04</div>
-        <div class="service-body">
-          <h3>Microsoft Office Expert</h3>
-          <p>Word, Excel, and PowerPoint — document formatting, spreadsheets, and presentation design done right.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-tag">05</div>
-        <div class="service-body">
-          <h3>Buy &amp; Sell Cryptocurrency</h3>
-          <p>Trusted crypto trading services — buying, selling, and exchange support for major cryptocurrencies.</p>
-        </div>
-      </div>
-
-      <div class="service-row">
-        <div class="service-tag">06</div>
-        <div class="service-body">
-          <h3>Private Photography</h3>
-          <p>Portrait, event, and private photography sessions — professional shots tailored to your needs.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="contact-strip">
-      <a href="tel:+2349013440139">Call</a>
-      <a href="mailto:efeblessco@gmail.com">Email</a>
-      <a href="https://wa.me/2349013440139" class="outline" target="_blank" rel="noopener">WhatsApp</a>
-    </div>
-  </main>
-
-</div>
+  <!-- POP-UP LOGIC & 7-SECOND TIMER -->
+  <script>
+    document.addEventListener("mouseleave", function(event) {
+      const popup = document.getElementById("exitPopup");
+      if (!popup.open) {
+        popup.showModal();
+        
+        // Auto-close after 7 seconds
+        setTimeout(function() {
+          popup.close();
+        }, 7000);
+      }
+    });
+  </script>
 
 </body>
 </html>
