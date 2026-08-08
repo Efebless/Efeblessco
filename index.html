@@ -82,14 +82,6 @@
     overflow:hidden;
   }
 
-  .photo-slot::after{
-    content:"PHOTO";
-    font-family:'JetBrains Mono', monospace;
-    font-size:11px;
-    letter-spacing:0.2em;
-    color:rgba(246,243,236,0.28);
-  }
-
   .photo-slot img{
     width:100%;
     height:100%;
@@ -105,7 +97,8 @@
     <div class="id-panel">
       <div class="eyebrow">EFEBLESSCO Services</div>
       <div class="photo-slot">
-        <!-- Add your photo here like: <img src="your-photo.jpg" alt="Profile"> -->
+        <!-- Profile Image from your repository -->
+        <img src="IMG-20260731-WA0004(1).jpg" alt="EFEBLESSCO Profile">
       </div>
     </div>
   </div>
@@ -115,11 +108,11 @@
     <h3 style="margin-top: 0; color: #333;">🛑 Wait, don't go yet!</h3>
     <p style="color: #666; margin: 15px 0;">Book your service today and get <strong>10% off</strong> your first visit! 🛠️⚡</p>
     
-    <!-- WHATSAPP DIRECT LINK WITH YOUR NUMBER -->
+    <!-- WHATSAPP DIRECT LINK -->
     <a href="https://wa.me/2349013440139?text=Hello%20EFEBLESSCO,%20I%20would%20like%20to%20claim%20my%2010%25%20discount%20booking!" target="_blank" style="display: inline-block; background: #25D366; color: white; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-size: 16px; font-weight: bold; box-shadow: 0 4px 10px rgba(37,211,102,0.3);">💬 Chat on WhatsApp</a>
   </dialog>
 
-  <!-- POP-UP LOGIC & 7-SECOND TIMER -->
+  <!-- POP-UP LOGIC & TIMER -->
   <script>
     document.addEventListener("mouseleave", function(event) {
       const popup = document.getElementById("exitPopup");
