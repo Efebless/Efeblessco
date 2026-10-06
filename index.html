@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EFEBLESSCO — Multi-Skilled Professional</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Chewy&family=Playfair+Display:ital,wght@1,500;1,700&display=swap');
 
   :root{
     --ink:#1c2024;
@@ -202,6 +202,24 @@
     color:var(--brass-light);
   }
 
+  .service-link{
+    color:inherit;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .service-link .go{
+    display:inline-block;
+    margin-top:12px;
+    font-family:'JetBrains Mono', monospace;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--brass);
+    letter-spacing:0.03em;
+    border-bottom:1px solid var(--brass);
+    padding-bottom:2px;
+  }
+  .service-link:hover .go{ color:var(--brass-light); border-color:var(--brass-light); }
+
   .contact-strip{
     margin-top:48px;
     display:flex;
@@ -243,6 +261,72 @@
     outline:2px solid var(--brass);
     outline-offset:2px;
   }
+
+  /* ===== DELIVERY POP-UP PAGE (slides up over the main page) ===== */
+  #delivery{
+    --muted:#5c6167;
+    position:fixed; inset:0; z-index:100;
+    overflow-y:auto; -webkit-overflow-scrolling:touch;
+    background:var(--paper); color:var(--ink);
+    font-family:'Space Grotesk',system-ui,sans-serif; line-height:1.6;
+    visibility:hidden; transform:translateY(100%);
+    transition:transform .38s ease, visibility 0s linear .38s;
+  }
+  #delivery.open{ visibility:visible; transform:none; transition:transform .38s ease; }
+  #delivery *{ box-sizing:border-box; }
+  #delivery h1,#delivery h2,#delivery h3,#delivery p,#delivery ul,#delivery ol{ margin:0; }
+  #delivery .back{ background:none; border:none; cursor:pointer; padding:8px 0; }
+  body.dv-lock{ overflow:hidden; }
+  @media (prefers-reduced-motion:reduce){ #delivery, #delivery.open{ transition:none; } }
+
+#delivery *{box-sizing:border-box;margin:0;padding:0}
+#delivery a{text-decoration:none;color:inherit}
+#delivery .dv-wrap{max-width:960px;margin:0 auto;padding:0 20px}
+#delivery header{position:sticky;top:0;z-index:20;background:rgba(246,243,236,.95);backdrop-filter:blur(8px);border-bottom:1px solid rgba(28,32,36,.1)}
+#delivery .nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+#delivery .back{font-family:'JetBrains Mono',monospace;font-size:12.5px;font-weight:600;color:var(--ink)}
+#delivery .logo{font-weight:700;letter-spacing:.04em;color:var(--brass)}
+#delivery .nav-btn{font-family:'JetBrains Mono',monospace;font-size:12.5px;background:var(--ink);color:var(--paper);padding:9px 16px;border-radius:3px}
+#delivery .nav-btn:hover{background:var(--brass)}
+#delivery .hero{padding:44px 0 36px;text-align:center}
+#delivery .dv-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brass)}
+#delivery .hero h1{margin-top:14px;font-size:clamp(32px,7vw,50px);line-height:1.1;letter-spacing:-.015em;font-weight:700}
+#delivery .hero h1 span{color:var(--brass)}
+#delivery .hero p{margin:14px auto 24px;max-width:520px;color:var(--muted);font-size:16px}
+#delivery .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 24px;border-radius:999px;font-weight:700;font-size:16px;transition:transform .15s}
+#delivery .btn:hover{transform:translateY(-2px)}
+#delivery .btn-gold{background:var(--brass);color:#fff;box-shadow:0 10px 24px rgba(196,138,58,.35)}
+#delivery .btn-wa{background:#25D366;color:#fff;box-shadow:0 8px 20px rgba(37,211,102,.3)}
+#delivery .offer{margin-top:16px;font-family:'JetBrains Mono',monospace;font-size:12.5px;color:var(--ink)}
+#delivery .quote{text-align:center;margin:0 auto 26px;padding:0 6px}
+#delivery .quote .orn{display:flex;align-items:center;justify-content:center;gap:12px;color:var(--brass);font-size:14px;margin-bottom:14px}
+#delivery .quote .orn::before,#delivery .quote .orn::after{content:"";width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--brass))}
+#delivery .quote .orn::after{transform:scaleX(-1)}
+#delivery .quote blockquote{font-family:'Playfair Display',Georgia,'Times New Roman',serif;font-style:italic;font-weight:700;font-size:clamp(32px,8vw,48px);line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+#delivery .quote blockquote span{display:block;color:var(--brass);background:linear-gradient(135deg,#a8721f 0%,#e0ab5c 50%,#b9812e 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+#delivery .steps-box{background:#2a2a2a;border-radius:36px;padding:26px 20px;display:grid;gap:18px}
+#delivery .step-card{background:#fff;border-radius:28px;padding:26px 24px;display:grid;grid-template-columns:56px 1fr;column-gap:18px;row-gap:6px;align-items:center}
+#delivery .step-card .n{width:56px;height:56px;border-radius:50%;background:#000;color:#fff;font-weight:700;font-size:22px;display:grid;place-items:center}
+#delivery .step-card h3{font-family:'Chewy','Arial Rounded MT Bold',system-ui,sans-serif;font-weight:400;font-size:26px;line-height:1.15;letter-spacing:.01em}
+#delivery .step-card p{grid-column:2;color:var(--muted);font-size:16px;line-height:1.7}
+#delivery .features{padding:56px 0 20px;display:grid;gap:56px;text-align:center}
+#delivery .feature .circle{position:relative;width:min(280px,72vw);aspect-ratio:1;margin:0 auto 22px;border-radius:50%;overflow:hidden;box-shadow:0 18px 40px rgba(0,0,0,.18)}
+#delivery .feature .circle svg{width:100%;height:100%;display:block}
+#delivery .feature .circle img.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+#delivery .feature h3{font-size:26px;font-weight:500;letter-spacing:-.01em}
+#delivery .feature p{margin:8px auto 0;max-width:380px;color:var(--muted);font-size:17px}
+#delivery .final{margin:56px 0 0;background:var(--panel);color:var(--paper);border-radius:36px;padding:44px 22px;text-align:center}
+#delivery .final .num{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:13px;color:var(--brass-light);border:1px solid rgba(246,243,236,.25);padding:8px 16px;border-radius:999px;margin-bottom:16px}
+#delivery .final h2{font-size:clamp(26px,5vw,36px);letter-spacing:-.01em;margin-bottom:8px}
+#delivery .final p{opacity:.8;margin-bottom:22px}
+#delivery footer{padding:30px 0 100px;text-align:center;color:var(--muted);font-family:'JetBrains Mono',monospace;font-size:12px}
+#delivery footer a{color:var(--brass);font-weight:600}
+#delivery .wa-float{position:fixed;right:16px;bottom:16px;z-index:30;background:#25D366;color:#fff;padding:14px 18px;border-radius:999px;font-weight:700;box-shadow:0 10px 25px rgba(0,0,0,.25)}
+@media(min-width:760px){#delivery .steps-box{grid-template-columns:repeat(3,1fr);padding:34px}
+#delivery .step-card{grid-template-columns:1fr;row-gap:12px;align-items:start}
+#delivery .step-card p{grid-column:1}
+#delivery .features{grid-template-columns:1fr 1fr;gap:40px}}
+#delivery :focus-visible{outline:2px solid var(--brass);outline-offset:2px}
 </style>
 </head>
 <body>
@@ -294,13 +378,14 @@
         </div>
       </div>
 
-      <div class="service-row">
+      <a class="service-row service-link" id="openDelivery" href="#delivery">
         <div class="service-tag">03</div>
         <div class="service-body">
           <h3>Dropshipping &amp; Home and Office Item Delivery Service</h3>
           <p>We provide product sourcing, supplier communication, order fulfillment, and reliable delivery of home and office items directly to customers' doors.</p>
+          <span class="go">See how delivery works &rarr;</span>
         </div>
-      </div>
+      </a>
 
       <div class="service-row">
         <div class="service-tag">04</div>
@@ -337,6 +422,185 @@
 
 </div>
 
+  <!-- DELIVERY POP-UP PAGE -->
+  <div id="delivery" role="dialog" aria-modal="true" aria-label="How delivery works" aria-hidden="true">
+<header>
+  <div class="dv-wrap nav">
+    <button class="back" id="dvClose" type="button">&#10005; Close</button>
+    <a class="logo" href="#" data-close>EFEBLESSCO</a>
+    <a class="nav-btn" href="https://wa.me/2349013440139?text=Hello%20EFEBLESSCO,%20I%20would%20like%20to%20place%20a%20delivery%20order">Order</a>
+  </div>
+</header>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="dv-wrap">
+    <div class="dv-eyebrow">Welcome · Warri, Delta State</div>
+    <h1>We pick it up.<br><span>We deliver it.</span></h1>
+    <p>Place your order for a rider and have us pick up your item. Send us a message on WhatsApp and we handle the rest.</p>
+    <a class="btn btn-gold" href="https://wa.me/2349013440139?text=Hello%20EFEBLESSCO,%20I%20would%20like%20to%20place%20a%20delivery%20order">💬 Place my order</a>
+    <div class="offer">10% off your first booking</div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section>
+  <div class="dv-wrap">
+    <div class="quote">
+      <div class="orn">&#10022;</div>
+      <blockquote>We run,<span>so you can rest.</span></blockquote>
+    </div>
+
+    <div class="steps-box">
+      <div class="step-card">
+        <div class="n">1</div>
+        <h3>Place Your Order</h3>
+        <p>Place your order for a rider and have us pick up your item.</p>
+      </div>
+      <div class="step-card">
+        <div class="n">2</div>
+        <h3>Relax. We'll Handle It.</h3>
+        <p>Relax and we will handle it.</p>
+      </div>
+      <div class="step-card">
+        <div class="n">3</div>
+        <h3>Confirmed on WhatsApp</h3>
+        <p>Your order is confirmed via our WhatsApp and we will handle it.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="dv-wrap features">
+
+    <!-- Phone / WhatsApp -->
+    <div class="feature">
+      <div class="circle">
+        <!-- PHOTO SLOT 1: upload your photo as chat-photo.jpg in the same folder. It covers the drawing automatically. -->
+        <img class="photo" src="chat-photo.jpg" alt="Chatting with EFEBLESSCO on WhatsApp" onerror="this.remove()">
+        <svg viewBox="0 0 300 300" role="img" aria-label="Hands holding a phone showing a WhatsApp chat with EFEBLESSCO">
+          <defs>
+            <linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4a3f38"/><stop offset="1" stop-color="#1c2024"/></linearGradient>
+          </defs>
+          <rect width="300" height="300" fill="url(#bg1)"/>
+          <circle cx="40" cy="50" r="70" fill="rgba(224,171,92,.10)"/>
+          <circle cx="270" cy="260" r="80" fill="rgba(224,171,92,.08)"/>
+
+          <!-- sleeves + palm -->
+          <path d="M60 300 L84 205 L216 205 L240 300 Z" fill="#2b2f34"/>
+          <rect x="88" y="168" width="124" height="60" rx="26" fill="#8a5a3c"/>
+
+          <g transform="rotate(-6 150 140)">
+            <!-- phone -->
+            <rect x="92" y="22" width="116" height="214" rx="20" fill="#0e1114"/>
+            <rect x="98" y="29" width="104" height="200" rx="15" fill="#ECE5DD"/>
+            <rect x="130" y="31" width="40" height="8" rx="4" fill="#0e1114"/>
+            <!-- chat header -->
+            <path d="M98 44 A15 15 0 0 1 113 29 L187 29 A15 15 0 0 1 202 44 L202 72 L98 72 Z" fill="#075E54"/>
+            <circle cx="116" cy="55" r="10" fill="#171b1f"/>
+            <text x="116" y="59" text-anchor="middle" font-size="10" font-weight="700" fill="#e0ab5c" font-family="Arial,sans-serif">E</text>
+            <text x="131" y="52" font-size="9" font-weight="700" fill="#fff" font-family="Arial,sans-serif">EFEBLESSCO</text>
+            <text x="131" y="63" font-size="7" fill="#d6f3ee" font-family="Arial,sans-serif">+234 901 344 0139</text>
+            <!-- messages -->
+            <rect x="124" y="82" width="72" height="30" rx="8" fill="#DCF8C6"/>
+            <text x="130" y="94" font-size="7" fill="#10211D" font-family="Arial,sans-serif">Hello EFEBLESSCO, I</text>
+            <text x="130" y="104" font-size="7" fill="#10211D" font-family="Arial,sans-serif">need a rider to pick up</text>
+            <rect x="104" y="120" width="76" height="30" rx="8" fill="#fff"/>
+            <text x="110" y="132" font-size="7" fill="#10211D" font-family="Arial,sans-serif">Welcome! Where should</text>
+            <text x="110" y="142" font-size="7" fill="#10211D" font-family="Arial,sans-serif">we pick it up from?</text>
+            <rect x="130" y="158" width="66" height="22" rx="8" fill="#DCF8C6"/>
+            <text x="136" y="172" font-size="7" fill="#10211D" font-family="Arial,sans-serif">Sending it now</text>
+            <rect x="104" y="188" width="86" height="22" rx="8" fill="#fff"/>
+            <text x="110" y="202" font-size="7" fill="#10211D" font-family="Arial,sans-serif">Order confirmed ✓✓</text>
+            <rect x="103" y="214" width="70" height="12" rx="6" fill="#fff"/>
+            <circle cx="187" cy="220" r="8" fill="#25D366"/>
+          </g>
+
+          <!-- fingers + thumb -->
+          <rect x="196" y="140" width="22" height="16" rx="8" fill="#8a5a3c" transform="rotate(-6 200 148)"/>
+          <rect x="198" y="158" width="22" height="16" rx="8" fill="#8a5a3c" transform="rotate(-6 200 166)"/>
+          <rect x="196" y="176" width="22" height="16" rx="8" fill="#8a5a3c" transform="rotate(-6 200 184)"/>
+          <ellipse cx="88" cy="176" rx="13" ry="26" fill="#8a5a3c" transform="rotate(-12 88 176)"/>
+        </svg>
+      </div>
+      <h3>Chat With Us</h3>
+      <p>Send your request on WhatsApp and get your confirmation right in the chat.</p>
+    </div>
+
+    <!-- Rider -->
+    <div class="feature">
+      <div class="circle">
+        <!-- PHOTO SLOT 2: upload your photo as rider-photo.jpg in the same folder. It covers the drawing automatically. -->
+        <img class="photo" src="rider-photo.jpg" alt="EFEBLESSCO delivery rider" onerror="this.remove()">
+        <svg viewBox="0 0 300 300" role="img" aria-label="A delivery rider carrying an EFEBLESSCO bag">
+          <defs>
+            <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cdb99a"/><stop offset="1" stop-color="#8d7a63"/></linearGradient>
+          </defs>
+          <rect width="300" height="300" fill="url(#bg2)"/>
+          <!-- soft street shapes -->
+          <rect x="-10" y="60" width="90" height="170" rx="8" fill="#a98f6d" opacity=".7"/>
+          <rect x="228" y="40" width="90" height="190" rx="8" fill="#9c8363" opacity=".7"/>
+          <circle cx="60" cy="120" r="22" fill="#f4a24c" opacity=".75"/>
+          <rect y="236" width="300" height="70" fill="#5b5148" opacity=".85"/>
+
+          <!-- arms -->
+          <path d="M70 140 Q56 190 70 240 L98 240 L104 150 Z" fill="#14171a"/>
+          <path d="M230 140 Q244 190 230 240 L202 240 L196 150 Z" fill="#14171a"/>
+          <rect x="62" y="185" width="38" height="9" rx="3" fill="#cfd4d8" transform="rotate(-6 80 190)"/>
+          <rect x="200" y="185" width="38" height="9" rx="3" fill="#cfd4d8" transform="rotate(6 220 190)"/>
+
+          <!-- helmet + neck -->
+          <rect x="136" y="92" width="28" height="30" rx="8" fill="#6d4a33"/>
+          <path d="M112 78 A38 38 0 0 1 188 78 L188 92 Q150 104 112 92 Z" fill="#e0ab5c"/>
+          <path d="M126 58 Q150 48 174 58" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="4" stroke-linecap="round"/>
+          <rect x="116" y="84" width="68" height="6" rx="3" fill="#14171a" opacity=".5"/>
+
+          <!-- shoulders -->
+          <path d="M84 138 Q150 104 216 138 L220 160 L80 160 Z" fill="#14171a"/>
+
+          <!-- bag -->
+          <rect x="78" y="124" width="144" height="128" rx="16" fill="#171b1f"/>
+          <rect x="78" y="124" width="144" height="22" rx="12" fill="#20262c"/>
+          <rect x="78" y="226" width="144" height="8" fill="#cfd4d8" opacity=".85"/>
+          <rect x="94" y="156" width="112" height="56" rx="8" fill="none" stroke="#e0ab5c" stroke-opacity=".35" stroke-width="1.5"/>
+          <text x="150" y="190" text-anchor="middle" font-size="17" font-weight="800" letter-spacing=".5" fill="#e0ab5c" font-family="'Space Grotesk',Arial,sans-serif">EFEBLESSCO</text>
+          <text x="150" y="206" text-anchor="middle" font-size="8" fill="#f6f3ec" font-family="'Space Grotesk',Arial,sans-serif" letter-spacing="1.5">DELIVERY SERVICE</text>
+        </svg>
+      </div>
+      <h3>Order Again</h3>
+      <p>Order again with just another request.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section>
+  <div class="dv-wrap">
+    <div class="final">
+      <span class="num">+234 901 344 0139</span>
+      <h2>Ready when you are</h2>
+      <p>Send us a message and get 10% off your first booking.</p>
+      <a class="btn btn-wa" href="https://wa.me/2349013440139?text=Hello%20EFEBLESSCO,%20I%20would%20like%20to%20claim%20my%2010%25%20discount%20booking!">💬 Chat on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="dv-wrap">© <span id="dvYr">2026</span> EFEBLESSCO · Warri, Delta State · <a href="#" data-close>Back to home</a></div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/2349013440139?text=Hello%20EFEBLESSCO">💬 WhatsApp</a>
+
+
+  </div>
+
   <!-- EXIT-INTENT POP-UP -->
   <dialog id="exitPopup" style="border: none; border-radius: 12px; padding: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.2); width: 320px; text-align: center;">
     <h3 style="margin-top: 0; color: #333;">🛑 Wait, don't go yet!</h3>
@@ -363,6 +627,61 @@
         }, 7000);
       }
     }, 15000);
+  </script>
+
+
+  <!-- DELIVERY POP-UP LOGIC -->
+  <script>
+  (function(){
+    var dv = document.getElementById('delivery');
+    var opener = document.getElementById('openDelivery');
+    var page = document.querySelector('.wrap');
+    var lastFocus = null, byClick = false;
+
+    function openDv(){
+      if (dv.classList.contains('open')) return;
+      lastFocus = document.activeElement;
+      dv.classList.add('open');
+      dv.setAttribute('aria-hidden','false');
+      document.body.classList.add('dv-lock');
+      if (page) page.setAttribute('inert','');
+      dv.scrollTop = 0;
+      setTimeout(function(){ document.getElementById('dvClose').focus(); }, 60);
+    }
+    function closeDv(){
+      dv.classList.remove('open');
+      dv.setAttribute('aria-hidden','true');
+      document.body.classList.remove('dv-lock');
+      if (page) page.removeAttribute('inert');
+      byClick = false;
+      if (lastFocus && lastFocus.focus) lastFocus.focus();
+    }
+    function requestClose(){
+      if (location.hash === '#delivery'){
+        if (byClick){ history.back(); }
+        else { history.replaceState(null,'',location.pathname+location.search); closeDv(); }
+      } else { closeDv(); }
+    }
+
+    opener.addEventListener('click', function(e){
+      e.preventDefault();
+      byClick = true;
+      history.pushState({dv:1},'','#delivery');
+      openDv();
+    });
+    document.querySelectorAll('[data-close], #dvClose').forEach(function(el){
+      el.addEventListener('click', function(e){ e.preventDefault(); requestClose(); });
+    });
+    window.addEventListener('popstate', function(){
+      if (location.hash === '#delivery') openDv(); else closeDv();
+    });
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && dv.classList.contains('open')) requestClose();
+    });
+    if (location.hash === '#delivery') openDv();
+
+    document.getElementById('dvYr').textContent = new Date().getFullYear();
+  })();
   </script>
 
 </body>
